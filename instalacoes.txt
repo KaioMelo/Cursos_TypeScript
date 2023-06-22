@@ -1,0 +1,9 @@
+
+
+
+
+restricao - Get-ExecutionPolic / Set-ExecutionPolicy Unrestricted / Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+Code Runer - baixar dependencia ( npm i -g ts-node)
+
+tsc -w     - detecta mudanças no arquivo typescript e atualiza no browser
