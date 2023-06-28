@@ -106,3 +106,92 @@ usuario = {
 }
 
 console.log(usuario)
+
+
+// Desafio 
+
+/*
+    Criar um objeto funcionario com: 
+        - função de string com os nomes dos supervisor
+        - função de bater ponto que recebe a hora (número)
+            e retornar uma string
+            -> ponto normal (<= 8)
+            -> fora do horário (>8)
+*/
+
+//  Criacao de um tipo
+
+type Funcionario = {
+    supervisor: string[],
+    batePonto: (horas: number) => string
+}
+
+/*
+let funcionario : {
+    supervisor: string[],
+    batePonto: (horas: number) => string
+} = {
+    supervisor: ['Ana', 'Fernando'],
+    batePonto(horario: number): string{
+        if(horario <= 8){
+            return 'Ponto normal'
+        }else{
+            return 'fora do horário'
+        }
+    }
+}
+*/
+
+let funcionario : Funcionario = {
+    supervisor: ['Ana', 'Fernando'],
+    batePonto(horario: number): string{
+        if(horario <= 8){
+            return 'Ponto normal'
+        }else{
+            return 'fora do horário'
+        }
+    }
+}
+
+console.log(funcionario.supervisor)
+console.log(funcionario.batePonto(8))
+console.log(funcionario.batePonto(9))
+
+//  union types
+
+let nota: number | string = 10
+console.log(`minha nota é ${nota}`)
+nota = "10"
+console.log(`minha nota é ${nota}`)
+
+
+//  checando tipos
+
+let valor = 30
+
+if(typeof valor === "number"){
+    console.log("é um number!")
+}else{
+    console.log(typeof valor)
+}
+
+//  never
+
+function falha(msg: string): never {
+    throw new Error(msg)
+}
+
+const produto = {
+    nome: 'Sabão',
+    preco: 4,
+    validarProduto(){
+        if(!this.nome || this.nome.trim().length == 0){
+            falha('Precisa ter um nome')
+        }
+        if(this.preco <= 0){
+            falha('Preco inválido!')
+        }
+    }
+}
+
+produto.validarProduto()

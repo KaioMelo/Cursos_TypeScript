@@ -75,3 +75,62 @@ usuario = {
     nome: "Kaio"
 };
 console.log(usuario);
+/*
+let funcionario : {
+    supervisor: string[],
+    batePonto: (horas: number) => string
+} = {
+    supervisor: ['Ana', 'Fernando'],
+    batePonto(horario: number): string{
+        if(horario <= 8){
+            return 'Ponto normal'
+        }else{
+            return 'fora do horário'
+        }
+    }
+}
+*/
+let funcionario = {
+    supervisor: ['Ana', 'Fernando'],
+    batePonto(horario) {
+        if (horario <= 8) {
+            return 'Ponto normal';
+        }
+        else {
+            return 'fora do horário';
+        }
+    }
+};
+console.log(funcionario.supervisor);
+console.log(funcionario.batePonto(8));
+console.log(funcionario.batePonto(9));
+//  union types
+let nota = 10;
+console.log(`minha nota é ${nota}`);
+nota = "10";
+console.log(`minha nota é ${nota}`);
+//  checando tipos
+let valor = 30;
+if (typeof valor === "number") {
+    console.log("é um number!");
+}
+else {
+    console.log(typeof valor);
+}
+//  never
+function falha(msg) {
+    throw new Error(msg);
+}
+const produto = {
+    nome: 'Sabão',
+    preco: 4,
+    validarProduto() {
+        if (!this.nome || this.nome.trim().length == 0) {
+            falha('Precisa ter um nome');
+        }
+        if (this.preco <= 0) {
+            falha('Preco inválido!');
+        }
+    }
+};
+produto.validarProduto();
